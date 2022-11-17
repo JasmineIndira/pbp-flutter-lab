@@ -52,11 +52,33 @@ if(_counter != 0)FloatingActionButton(
 7. melakukan `git init - add - commit - push` ke dalam repositori baru
 
 # Tugas 8
-##Jelaskan perbedaan `Navigator.push` dan `Navigator.pushReplacement`
+## Jelaskan perbedaan `Navigator.push` dan `Navigator.pushReplacement`
 Navigator.push
 Method push yang digunakan untuk menambahkan rute lain ke atas tumpukan screen atau stack saat ini, dimana halaman baru akan ditampilkan di atas halaman sebelumnya.
 
 Navigator.pushReplacement
 Method push yang menggantikan page yang ditampilkan saat ini dengan page baru yang akan ditampilkan.
 
-##Sebutkan widget apa saja yang kamu pakai di proyek kali ini dan jelaskan fungsinya
+## Sebutkan widget apa saja yang kamu pakai di proyek kali ini dan jelaskan fungsinya
+Drawer : perpindahan tampilan atau navigator
+Row : untuk membuat flexible layout seecara horizontal
+Column : untuk membuat flexible layout seecara vertikal
+DropDownButton : Membuat drop down buttons untuk memilih input
+SizedBox : Mengatur dan membuat kotak dengan ukuran tertentu
+ListTile : Membuat row dengan height konstan
+
+## Jenis-jenis event yang ada pada Flutter
+- onPressed
+- onSaved
+- onChanged
+- onClick
+- onTap
+
+## Cara kerja `Navigator` dalam "mengganti" halaman dari aplikasi Flutter
+Navigator menggunakan prinsip stack dimana apa yang berada paling atas lah yang akan muncul. Saat kembali ke halaman sebelumnya, page yang saat ini dilihat akan dihapus dari stack dan tampilan user akan berganti ke halaman sebelumnya. 
+
+## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas
+1. membuat drawer untuk menroute untuk masing masing class
+2. membuat file form untuk untuk dimasukkan kedalam List 
+3. mebuat class budget dan BudgetForm untuk tempat penyimpanan objek budget
+4. menampilkan data dengan card
