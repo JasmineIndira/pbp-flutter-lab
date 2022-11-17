@@ -1,3 +1,4 @@
+# Tugas 7
 # counter_7
 
 ## Jelaskan apa yang dimaksud dengan stateless widget dan stateful widget dan jelaskan perbedaan dari keduanya.
@@ -49,3 +50,13 @@ if(_counter != 0)FloatingActionButton(
 5. menghilangkan tombol decrement saat counter == 0
 6. membuat repository baru
 7. melakukan `git init - add - commit - push` ke dalam repositori baru
+
+# Tugas 8
+##Jelaskan perbedaan `Navigator.push` dan `Navigator.pushReplacement`
+Navigator.push
+Method push yang digunakan untuk menambahkan rute lain ke atas tumpukan screen atau stack saat ini, dimana halaman baru akan ditampilkan di atas halaman sebelumnya.
+
+Navigator.pushReplacement
+Method push yang menggantikan page yang ditampilkan saat ini dengan page baru yang akan ditampilkan.
+
+##Sebutkan widget apa saja yang kamu pakai di proyek kali ini dan jelaskan fungsinya
