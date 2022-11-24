@@ -1,12 +1,12 @@
+// To parse this JSON data, do
+//
+//     final myWatchListModel = myWatchListModelFromJson(jsonString);
+
 import 'dart:convert';
-import 'package:http/http.dart' as http;
 
-List<MyWatchListModel> myWatchListFromJson(String str) =>
-    List<MyWatchListModel>.from(
-        json.decode(str).map((x) => MyWatchListModel.fromJson(x)));
+List<MyWatchListModel> myWatchListModelFromJson(String str) => List<MyWatchListModel>.from(json.decode(str).map((x) => MyWatchListModel.fromJson(x)));
 
-String myWatchListToJson(List<MyWatchListModel> data) =>
-    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+String myWatchListModelToJson(List<MyWatchListModel> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class MyWatchListModel {
   MyWatchListModel({
@@ -26,7 +26,7 @@ class MyWatchListModel {
   );
 
   Map<String, dynamic> toJson() => {
-    "model": modelValues.reverse![model],
+    "model": modelValues.reverse[model],
     "pk": pk,
     "fields": fields.toJson(),
   };
@@ -41,9 +41,9 @@ class Fields {
     required this.review,
   });
 
-  String watched;
+  bool watched;
   String title;
-  int rating;
+  String rating;
   DateTime releaseDate;
   String review;
 
@@ -59,27 +59,32 @@ class Fields {
     "watched": watched,
     "title": title,
     "rating": rating,
-    "release_date":
-    "${releaseDate.year.toString().padLeft(4, '0')}-${releaseDate.month.toString().padLeft(2, '0')}-${releaseDate.day.toString().padLeft(2, '0')}",
+    "release_date": "${releaseDate.year.toString().padLeft(4, '0')}-${releaseDate.month.toString().padLeft(2, '0')}-${releaseDate.day.toString().padLeft(2, '0')}",
     "review": review,
   };
 }
 
 enum Model { MYWATCHLIST_MYWATCHLIST }
 
-final modelValues =
-EnumValues({"mywatchlist.mywatchlist": Model.MYWATCHLIST_MYWATCHLIST});
+final modelValues = EnumValues({
+  "mywatchlist.mywatchlist": Model.MYWATCHLIST_MYWATCHLIST
+});
 
 class EnumValues<T> {
   Map<String, T> map;
-  Map<T, String>? reverseMap;
+  late Map<T, String> reverseMap;
 
   EnumValues(this.map);
 
-  Map<T, String>? get reverse {
+  Map<T, String> get reverse {
     if (reverseMap == null) {
       reverseMap = map.map((k, v) => new MapEntry(v, k));
     }
     return reverseMap;
   }
 }
+
+
+
+
+
