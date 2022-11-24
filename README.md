@@ -82,3 +82,33 @@ Navigator menggunakan prinsip stack dimana apa yang berada paling atas lah yang 
 2. membuat file form untuk untuk dimasukkan kedalam List 
 3. mebuat class budget dan BudgetForm untuk tempat penyimpanan objek budget
 4. menampilkan data dengan card
+
+# Tugas 9
+## Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON?
+
+Ya, kita bisa melakukan pengambilan data JSON tanpa membuat model terlebih dahulu. akan tetapi, data akan menjadi kurang efisien karena  kita tidak bisa mengakses data tersebut sebagai sebuah "class”.
+
+## Sebutkan widget apa saja yang kamu pakai di proyek kali ini dan jelaskan fungsinya.
+* FutureBuilder : Men-generate array suatu widget berdasarkan suatu snapshot
+* Checkbox : Widget untuk menandakan status dan perubahan status
+* CircularProgressIndicator: Menunjukkan suatu progress dengan sebuah lingkaran
+* Flexible : Mengendalikan ukuran dari widget lain
+* Sizedbox: Membuat box dengan ukuran yang bisa dispesifikasikan 
+## Jelaskan mekanisme pengambilan data dari json hingga dapat ditampilkan pada Flutter.
+- Menambahkan dependensi http
+- Membuat model sesuai dengan respons data
+- Membuat http request dengan dependesi http
+- Melakukan HTTP Request dengan method GET
+- Menampilkan data yang telah dikonversi menggunakan FutureBuilder
+
+## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
+1. Menambahkan tombol navigasi pada drawer/hamburger untuk ke halaman mywatchlist. 
+Menambahkan tombol navigasi pada drawer ke halaman mywatchlist pada budget.dart
+2. Membuat satu file dart yang berisi model mywatchlist.
+Membuat model myWatchListModel.dart, dan menyalin data mywatchlist berdasarkan yang telah dibuat pada Tugas 3 dengan menggunakan bantuan website quicktype.
+3. Menambahkan halaman mywatchlist yang berisi semua watch list yang ada pada endpoint JSON di Django yang telah kamu deploy ke Heroku sebelumnya
+Menambahkan dependency http untuk melakukan fetch data dari web Tugas 3. Data yang ditampilkan dengan menggunakan FutureBuilder, hanya menampilkan judul dari tiap watchlist saja.
+4. Membuat navigasi dari setiap judul watch list ke halaman detail
+Melakukan passing model yang bersesuaian dengan card dan menampilkan judul, release date, rating, review, dan status pada halaman detail.
+5. Menambahkan tombol untuk kembali ke daftar mywatchlist
+Menambahkan button back untuk kembali.
