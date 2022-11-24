@@ -71,14 +71,16 @@ class WatchListDetail extends StatelessWidget {
                     "Status: ",
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                   ),
-                  const Text(
-                    "Status: ",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-                  ),
-                  Text(
-                    watchlists.fields.watched ? "Watched" : "Not Watched",
-                    style: const TextStyle(fontSize: 14),
-                  ),
+                  if (watchlists.fields.watched == "no")
+                    const Text(
+                      "not watched",
+                      style: TextStyle(fontSize: 18),
+                    )
+                  else
+                    const Text(
+                      "watched",
+                      style: TextStyle(fontSize: 18),
+                    )
                 ],
               ),
               SizedBox(height: 10), // add space

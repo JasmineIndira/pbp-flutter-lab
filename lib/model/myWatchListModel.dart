@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:http/http.dart' as http;
 
 List<MyWatchListModel> myWatchListFromJson(String str) =>
     List<MyWatchListModel>.from(
@@ -18,15 +19,14 @@ class MyWatchListModel {
   int pk;
   Fields fields;
 
-  factory MyWatchListModel.fromJson(Map<String, dynamic> json) =>
-      MyWatchListModel(
-        model: modelValues.map[json["model"]],
-        pk: json["pk"],
-        fields: Fields.fromJson(json["fields"]),
-      );
+  factory MyWatchListModel.fromJson(Map<String, dynamic> json) => MyWatchListModel(
+    model: modelValues.map[json["model"]],
+    pk: json["pk"],
+    fields: Fields.fromJson(json["fields"]),
+  );
 
   Map<String, dynamic> toJson() => {
-    "model": modelValues.reverse[model],
+    "model": modelValues.reverse![model],
     "pk": pk,
     "fields": fields.toJson(),
   };
@@ -41,7 +41,7 @@ class Fields {
     required this.review,
   });
 
-  bool watched;
+  String watched;
   String title;
   int rating;
   DateTime releaseDate;
@@ -65,18 +65,18 @@ class Fields {
   };
 }
 
-enum Model { MYWATCHLIST_WATCHLISTMOVIES }
+enum Model { MYWATCHLIST_MYWATCHLIST }
 
-final modelValues = EnumValues(
-    {"mywatchlist.watchlistmovies": Model.MYWATCHLIST_WATCHLISTMOVIES});
+final modelValues =
+EnumValues({"mywatchlist.mywatchlist": Model.MYWATCHLIST_MYWATCHLIST});
 
 class EnumValues<T> {
   Map<String, T> map;
-  late Map<T, String> reverseMap;
+  Map<T, String>? reverseMap;
 
   EnumValues(this.map);
 
-  Map<T, String> get reverse {
+  Map<T, String>? get reverse {
     if (reverseMap == null) {
       reverseMap = map.map((k, v) => new MapEntry(v, k));
     }
