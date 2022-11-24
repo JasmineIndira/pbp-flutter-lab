@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:counter_7/budget.dart';
+import 'package:counter_7/page/budget.dart';
 
 
 void main() {

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:counter_7/form.dart';
+import 'package:counter_7/page/form.dart';
 import 'package:counter_7/main.dart';
+
+import 'myWatchList.dart';
 
 Drawer drawerClass(BuildContext context) {
   return Drawer(
@@ -33,6 +35,16 @@ Drawer drawerClass(BuildContext context) {
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(builder: (context) => const MyBudgetPage()),
+          );
+        },
+      ),
+      ListTile(
+        title: const Text('My Watch List'),
+        onTap: () {
+          // Route menu ke halaman form
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => const MyWatchListPage()),
           );
         },
       ),
